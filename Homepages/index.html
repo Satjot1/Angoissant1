@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark">
+    <div class="navigation-bar m-2 mb-3 fixed-bottom">
+        <nav class="navbar bg-body-tertiary" style="border-radius: 20px;">
+            <div class="container-fluid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40">
+                    <path
+                        d="M235.179-193.846h140.59v-247.461h209.128v247.461h139.924v-367.898L480-746.821 235.179-562.137v368.291ZM184-142.667v-445l296-222.538 296 222.538v445H533.718v-247.461H426.949v247.461H184ZM480-470.41Z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40">
+                    <path
+                        d="M283.037-292.102q-14.305 0-24.773-10.638-10.469-10.637-10.469-24.952v-56h487.846l25.384 25.384V-736h56.491q14.583 0 24.841 10.637 10.258 10.638 10.258 25.107v548.41L712.359-292.102H283.037Zm-175.652-25.026v-522.215q0-14.202 10.483-24.763 10.483-10.56 24.286-10.56h509.984q14.258 0 24.65 10.56 10.391 10.56 10.391 25.029v346.004q0 14.444-10.483 24.989-10.483 10.546-24.44 10.546H247.795l-140.41 140.41ZM636-508.718v-314.769H158.564v384.718l67.744-69.949H636Zm-477.436 0v-314.769 314.769Z" />
+                </svg>
+                <img src="logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                <img src="logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" id="liveToastBtn">
+                    <path
+                        d="M168-209.436v-51.179h82.128v-291.77q0-81.855 50.603-145.196 50.602-63.342 131.064-80.752v-28.154q0-20.932 13.681-34.081 13.681-13.15 34.602-13.15 20.922 0 34.525 13.15 13.602 13.149 13.602 34.081v28.154q80.462 17.41 131.474 80.752 51.013 63.341 51.013 145.196v291.77H792v51.179H168Zm312-285.051Zm-.035 416.435q-29.238 0-50.909-20.85-21.671-20.849-21.671-51.765h145.23q0 31.282-20.86 51.949-20.86 20.666-51.79 20.666ZM301.308-260.615h358.205v-291.77q0-75.154-52.103-127.077-52.102-51.923-127.256-51.923t-127 51.923q-51.846 51.923-51.846 127.077v291.77Z" />
+                </svg>
+            </div>
+        </nav>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Hello, world! This is a toast message.
+          </div>
+        </div>
+      </div>
+
+      {% block content %}{% endblock content %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+
+    if (toastTrigger) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastTrigger.addEventListener('click', () => {
+            toastBootstrap.show()
+        })
+    }
+</script>
+
+</html>
